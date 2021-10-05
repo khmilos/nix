@@ -36,7 +36,7 @@ func main() {
 	go rec(channels, out, &wg)
 
 	for i := 0; i < len(channels); i++ {
-		channels[i%len(channels)] <- i
+		channels[i] <- i
 		close(channels[i]) // Забыл добавить закрытие канала что получает
 	}
 
